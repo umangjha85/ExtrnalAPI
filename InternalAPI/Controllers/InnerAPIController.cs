@@ -18,7 +18,7 @@ namespace InternalAPI.Controllers
 
         private DateTime _requestTime;
         private DateTime responseTime;
-        private bool flag=false;
+        private bool flag=false;//Name & Unwanted assignment 
         List<InnerAPI> innerAPI = new List<InnerAPI>();
         private string _apiBaseURI = "https://localhost:44319/weatherforecast";
        
@@ -47,12 +47,12 @@ namespace InternalAPI.Controllers
                     (responseMessage.Content.ReadAsStringAsync().Result); //resapi
                     flag = true;
                 }
-                else
+                else//Unwanted block
                 {
                     flag = false;
                 }
                 TimeSpan letancy = responseTime - _requestTime;
-                string status = flag.Equals("true") ? "Fail" : "Success";
+                string status = flag.Equals("true") ? "Fail" : "Success";//Need to change
 
                 LoggerExtensions.LogSoapApiResponseTime(nameof(Get), _requestTime, responseTime,status, "",
                 letancy, "", "", "");
@@ -65,7 +65,6 @@ namespace InternalAPI.Controllers
                
                 var st = new StackTrace(ex, true);
                 var line = st.GetFrame(0).GetFileLineNumber();
-                
                 LoggerExtensions.LogSoapApiResponseTime(nameof(Get), _requestTime, responseTime, "Fail", ex.ToString(),
                 letancy, ex.Message.ToString(), ex.InnerException.ToString(), ex.StackTrace.ToString());
 

@@ -17,25 +17,32 @@ namespace InternalAPI
     {
 
 
-        public class loggercsv
+        public class loggercsv//Class Name change
         {
-            public string Methodname { get; set; }
+            public string Methodname { get; set; }//Property Name
             public DateTime RequestTime { get; set; }
             public DateTime ResponseTime { get; set; }
             public string Status { get; set; }
             public string Argument { get; set; }
-            public TimeSpan Letancy { get; set; }
+            public TimeSpan Latency { get; set; }
             public string Exception { get; set; }
             public string ErrorMessage { get; set; }
             public string InnerException { get; set; }
-            public string StckTrace { get; set; }
+            public string StckTrace { get; set; }//Name 
 
         }
 
         
 
-        public static void LogSoapApiResponseTime(string methodname,DateTime requestTime, DateTime 
-            responseTime, string status, string exception, TimeSpan letancy,string errormessage,string innerexception,
+        public static void LogSoapApiResponseTime(
+            string methodname,
+            DateTime requestTime, 
+            DateTime responseTime, 
+            string status, 
+            string exception, 
+            TimeSpan letancy,
+            string errormessage,
+            string innerexception,
             string errortrace)
         {
 
@@ -51,13 +58,14 @@ namespace InternalAPI
                         ResponseTime=responseTime,
                         Status=status,
                         Argument="{}",
-                        Letancy=letancy,
+                        Latency=letancy,
                         Exception=exception,
                         ErrorMessage=errormessage,
                         InnerException=innerexception,
                         StckTrace=errortrace,
                     }
                 };
+                //Path should not be hard coded
                 string path = @"C:\Users\ATEAM\source\repos\ExtrnalAPI\InternalAPI\Logger.csv";
 
                 if(File.Exists(path))
