@@ -1,0 +1,3 @@
+Methodname,RequestTime,ResponseTime,Status,Argument,Letancy,Exception,ErrorMessage,InnerException,StckTrace
+Get,04/28/2020 10:22:46,04/28/2020 10:22:48,Success,{},-00:00:02.1887730,,,,
+Get,04/28/2020 11:24:18,04/28/2020 11:24:20,Success,{},-2553,,,,
